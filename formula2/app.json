@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/Instructions/Instructions"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "分子结构画图小助手",
+    "navigationBarBackgroundColor": "#ffffff"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "/images/首页.png",
+        "selectedIconPath": "/images/首页.png"
+      },
+      {
+        "pagePath": "pages/Instructions/Instructions",
+        "text": "使用指南",
+        "iconPath": "/images/说明书.png",
+        "selectedIconPath": "/images/说明书.png"
+      }
+    ]
+},
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "permission": {
+    "scope.writePhotosAlbum": {
+      "desc": "用于保存图片到相册"
+    }
+  }
+}

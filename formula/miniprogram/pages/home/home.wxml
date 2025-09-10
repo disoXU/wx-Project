@@ -1,0 +1,52 @@
+<!--pages/home/home.wxml-->
+<view class="container">
+  <!-- 选择查询方式 -->
+  <view class="query-option">
+    <radio-group bindchange="onOptionChange">
+      <label><radio value="formula" />分子式</label>
+      <label><radio value="name" />英文名</label>
+      <label><radio value="cid" />CID</label>
+      <label><radio value="smiles" />SMILES</label>
+    </radio-group>
+  </view>
+
+  <!-- 输入框 -->
+  <view class="input-box">
+    <input placeholder="请输入对应内容" bindinput="onInputChange" />
+  </view>
+
+  <!-- 查询按钮 -->
+  <view class="button-box">
+    <button bindtap="onQueryClick">查询</button>
+  </view>
+
+  <!-- 等待提示弹窗（初始隐藏） -->
+  <modal hidden="{{!showWaitingModal}}" title="查询提示" no-cancel="false" bindconfirm='confirm_query'>查询时间大约在两分钟以内，通过化学式查询速度较慢，建议使用cid码或者smiles，请耐心等待。</modal>
+
+  <!-- 结果展示窗口（初始隐藏） -->
+  <view  class="result">
+    <view class="result-item">名称：{{result.name}}</view>
+    <view class="separator"></view>
+    <view class="result-item">化学式：{{result.formula}}</view>
+    <view class="separator"></view>
+    <view class="result-item">CID：{{result.cid}}</view>
+    <view class="separator"></view>
+    <view class="result-item">SMILES：{{result.smiles}}</view>
+    <view class="separator"></view>
+    <view class="result-item">Inchi：{{result.inchi}}</view>
+  </view>
+
+    <!-- 查询结构 -->
+  <view class="button-box">
+    <button bindtap="fetchData">获取图片</button>
+  </view>
+
+  <!-- 化合物结构图片展示窗口 -->
+  <image src="{{imageData}}" mode="widthFix" class="structure-image" />
+
+  <view class="button-box">
+    <button bindtap="rdkit">获取结构</button>
+  </view>
+  <image src="{{'data:image/png;base64,' + imageBase64Data1}}" mode="aspectFit"></image>
+  <image src="{{'data:image/png;base64,' + imageBase64Data2}}" mode="aspectFit"></image>
+</view>
